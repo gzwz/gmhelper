@@ -73,7 +73,7 @@ public class SM2PrivateKey extends BCECPrivateKey {
         try {
             SubjectPublicKeyInfo info = SubjectPublicKeyInfo.getInstance(ASN1Primitive.fromByteArray(pub.getEncoded()));
 
-            return info.getPublicKeyData();
+            return (DERBitString) info.getPublicKeyData();
         } catch (IOException e) {   // should never happen
             return null;
         }
